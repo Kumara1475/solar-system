@@ -6,12 +6,9 @@ pipeline {
   }
 
   stages {
-    stage('Node Version') {
+    stage('install dependencies') {
       steps {
-        sh '''
-          node -v
-          npm -v
-        '''
+        sh 'npm install'
       }
     }
   }
