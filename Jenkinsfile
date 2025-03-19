@@ -11,5 +11,10 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage(npm audit) {
+      steps {
+        sh 'npm audit --audit-level=high'
+      }  
+    }
   }
 }
