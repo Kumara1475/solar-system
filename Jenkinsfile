@@ -3,6 +3,7 @@ pipeline {
 
   tools {
     nodejs "node-23.9.0"
+    dependencyCheck 'OWASP_12'
   }
 
   stages {
@@ -11,9 +12,9 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('npm audit1') {
+    stage('OWSAP Dependency Check') {
       steps {
-        sh 'npm audit --audit-level=critical'
+        dependencyCheck additionalArguments: '--format=HTML', odcInstallation: 'OWASP_12'
       }  
     }
   }
