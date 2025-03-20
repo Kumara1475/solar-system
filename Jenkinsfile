@@ -11,7 +11,7 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('OWSAP Dependency Check') {
+    stage('OWSAP Dependency Check1') {
       steps {
         dependencyCheck additionalArguments: '--format=HTML', odcInstallation: 'OWASP_12'
       }  
