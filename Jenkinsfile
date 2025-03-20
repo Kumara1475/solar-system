@@ -3,7 +3,6 @@ pipeline {
 
   tools {
     nodejs "node-23.9.0"
-    dependencyCheck 'OWASP_12'
   }
 
   stages {
