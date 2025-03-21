@@ -18,5 +18,8 @@ pipeline {
     
       }  
     }
+    stage('unit testing') {
+      sh 'npm test'
+    }
   }
 }
