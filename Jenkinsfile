@@ -13,7 +13,7 @@ pipeline {
     }
     stage('OWSAP Dependency Check') {
       steps {
-         dependencyCheck additionalArguments: '--format=HTML,XML', nvdCredentialsId: 'OWASP_API_KEY', odcInstallation: 'OWASP-12-1-0'
+         dependencyCheck additionalArguments: '--format=HTML --format=XML', nvdCredentialsId: 'OWASP_API_KEY', odcInstallation: 'OWASP-12-1-0'
     
       }  
     }
