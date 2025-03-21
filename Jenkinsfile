@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-  nodejs 'node-23.9.0'
+  nodejs 'node-23-9-0'
 }
 
   stages {
@@ -13,7 +13,7 @@ pipeline {
     }
     stage('OWSAP Dependency Check') {
       steps {
-        dependencyCheck additionalArguments: '--format=HTML', odcInstallation: 'OWSAP_12.0.2'
+        dependencyCheck additionalArguments: '--format=XML', nvdCredentialsId: 'OWASP_API_KEY', odcInstallation: 'OWASP-12-1-0'
       }  
     }
   }
