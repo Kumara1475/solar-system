@@ -14,6 +14,7 @@ pipeline {
     stage('OWSAP Dependency Check') {
       steps {
         dependencyCheck additionalArguments: '--format=XML', nvdCredentialsId: 'OWASP_API_KEY', odcInstallation: 'OWASP-12-1-0'
+        dependencyCheckPublisher failedTotalCritical: 1, pattern: 'dependency-check-report.xml', stopBuild: true
       }  
     }
   }
