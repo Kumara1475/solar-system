@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  environment {
+        MONGO_URI = "mongodb://localhost:27017/mydatabase"
+    }
+
   tools {
   nodejs 'node-23-9-0'
 }
@@ -8,7 +12,9 @@ pipeline {
   stages {
     stage('install dependencies') {
       steps {
-        sh 'npm install'
+        withCredentials([usernamePassword(credentialsId: 'MONGO_CRED', passwordVariable: 'MONGO_PASSWORD', usernameVariable: 'MONGO_USERNAME')]) {
+          sh 'npm test'
+        }
       }
     }
     stage('OWSAP Dependency Check') {
